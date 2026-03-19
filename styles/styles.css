@@ -1,0 +1,425 @@
+/* =========================================
+           VARIABLES DE COLOR (Estilo Industrial)
+           ========================================= */
+        :root {
+            --primary-color: #1A2530; /* Azul Marino (Estabilidad) */
+            --secondary-color: #7F8C8D; /* Gris Acero (Maquinaria) */
+            --accent-color: #356ba0; /* Naranja Industrial (Precaución/Acción) */
+            --bg-light: #F4F6F7; /* Gris muy claro para fondos */
+            --white: #FFFFFF;
+            --text-dark: #2C3E50;
+            --max-width: 1440px; /* Contenedor máximo para pantallas grandes */
+        }
+
+        /* =========================================
+           RESETEO BÁSICO Y TIPOGRAFÍA
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        .container {
+            width: 90%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        /* =========================================
+           NAVEGACIÓN
+           ========================================= */
+        header {
+            background-color: var(--primary-color);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+        }
+
+        .logo-img {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-img img {
+            width: 80px;
+            padding: .2rem;
+            transition: .3s;
+        }
+
+        .logo-img img:hover {
+            transform: scale(1.05); /* Pequeño efecto de zoom al pasar el mouse */
+        }
+
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--primary-color);
+            text-align: center;
+            
+            /* Ocultamiento y animación suave */
+            max-height: 0;
+            padding: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, padding 0.4s ease-in-out;
+        }
+
+        .nav-links li a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Menú Hamburguesa (Mobile) */
+        .menu-btn {
+            display: block;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .nav-links.active {
+            max-height: 400px; /* Un valor seguro que supere el alto del menú abierto */
+            padding: 1rem 0;
+            opacity: 1;
+        }
+
+        .nav-links.active li {
+            margin: 1rem 0;
+        }
+
+        .nav-links.active li a {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        /* =========================================
+           SECCIONES GENERALES
+           ========================================= */
+        section {
+            padding: 6rem 0; /* Espaciado para el header fijo */
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            position: relative;
+            color: var(--primary-color);
+            
+        }
+
+        /* Línea decorativa industrial debajo de los títulos */
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+        }
+
+        /* =========================================
+           1. INICIO (Hero Section)
+           ========================================= */
+        #inicio {
+            height: 100vh;
+            min-height: 600px;
+            background-color: var(--primary-color);
+            background-image: linear-gradient(rgba(26, 37, 48, 0.5), rgba(26, 37, 48, 0.8)), url('../img/hero.png');
+            background-size: cover;
+            background-position: center;
+            
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            padding-top: 0;
+        }
+        
+
+        #inicio h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Sombra para mejorar legibilidad sobre la imagen */
+        }
+
+        #inicio p {
+            font-size: 1.1rem;
+            color: var(--white);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Sombra para mejorar legibilidad sobre la imagen */
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-radius: 2px; /* Bordes casi rectos para estilo industrial */
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* =========================================
+           2. QUIÉNES SOMOS
+           ========================================= */
+        #quienes-somos {
+            background-color: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        /* Contenedor simulando una imagen de planta */
+        .about-image {
+            background-color: var(--bg-light);
+            height: 300px;
+            border-left: 5px solid var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        /* =========================================
+           3. SERVICIOS (Cards)
+           ========================================= */
+        #servicios {
+            background-color: var(--bg-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-top: 4px solid var(--accent-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .card p {
+            color: var(--secondary-color);
+            font-size: 0.95rem;
+        }
+
+        /* =========================================
+           4. CONTACTO
+           ========================================= */
+        #contacto {
+            /* Filtro oscuro (Azul marino al 85% de opacidad) + Imagen */
+            background-image: linear-gradient(
+                rgba(26, 37, 48, 0.8), 
+                rgba(26, 37, 48, 0.8)
+            ), url('../img/contacto.png');
+            
+            /* Ajustes para que la imagen se vea perfecta */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            
+            /* Opcional: Descomenta la siguiente línea para un efecto "Parallax" donde la foto se queda quieta al hacer scroll */
+            /* background-attachment: fixed; */
+            
+            color: var(--white);
+        }
+
+        #contacto h2 {
+            color: var(--white);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Sombra para mejorar legibilidad sobre la imagen */
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Sombra para mejorar legibilidad sobre la imagen */
+        }
+
+        .contact-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Sombra para mejorar legibilidad sobre la imagen */
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: transparent; /* Sin color de fondo */
+            color: var(--white); /* Texto en blanco para el fondo oscuro */
+            padding: 0.5rem 0; /* Padding ajustado para alinear con el párrafo superior */
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-btn svg {
+            stroke: var(--accent-color); /* Icono en naranja industrial */
+            transition: transform 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            color: var(--accent-color); /* El texto se pinta de naranja al pasar el mouse */
+        }
+
+        .contact-btn:hover svg {
+            transform: translateX(5px); /* El icono da un pequeño salto a la derecha */
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--secondary-color);
+            background-color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            border-radius: 2px;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            align-self: flex-start;
+        }
+
+        /* =========================================
+           FOOTER
+           ========================================= */
+        footer {
+            background-color: #121A22;
+            color: var(--secondary-color);
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.9rem;
+        }
+
+        /* =========================================
+           MEDIA QUERIES (Adaptabilidad)
+           ========================================= */
+
+        /* Tablet (768px y superior) */
+        @media (min-width: 768px) {
+            #inicio h1 { font-size: 3.5rem; }
+            
+            .about-grid { grid-template-columns: 1fr 1fr; align-items: center; }
+            
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            
+            .contact-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        /* Escritorio (1024px y superior) */
+        @media (min-width: 1024px) {
+            .menu-btn { display: none; }
+            
+            .nav-links {
+                display: flex !important;
+                flex-direction: row;
+                justify-content: flex-end;
+                position: static;
+                background-color: transparent;
+                
+                /* Reseteo de las propiedades de animación para escritorio */
+                padding: 0;
+                max-height: none;
+                overflow: visible;
+                opacity: 1;
+            }
+
+            .nav-links li a { margin-left: 2rem; margin-top: 0; }
+            
+            #inicio h1 { font-size: 4rem; }
+            
+            .services-grid { grid-template-columns: repeat(4, 1fr); }
+
+            /* Ajustes para Full HD (1920x1080) */
+            section { padding: 8rem 0; }
+        }
