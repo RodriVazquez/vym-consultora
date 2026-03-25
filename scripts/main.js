@@ -16,3 +16,15 @@
                 }
             });
         });
+
+        // Mostrar u ocultar el botón flotante de WhatsApp al hacer scroll
+        const whatsappFloat = document.getElementById('whatsappFloat');
+
+        window.addEventListener('scroll', () => {
+            // Mostramos el botón tras scrollear 300px hacia abajo
+            if (window.scrollY > 300) {
+                whatsappFloat.classList.add('show');
+            } else {
+                whatsappFloat.classList.remove('show');
+            }
+        });
